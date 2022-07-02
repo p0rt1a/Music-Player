@@ -1,12 +1,22 @@
 class Music {
-  constructor(title, singer) {
+  constructor(title, singer, imagePath, audioPath) {
     this.title = title;
     this.singer = singer;
+    this.imagePath = imagePath;
+    this.audioPath = audioPath;
+  }
+
+  getImagePath() {
+    return this.imagePath;
+  }
+
+  getAudioPath() {
+    return this.audioPath;
   }
 }
 
 let musicList = [
-  new Music("Boşver", "Nilüfer"),
-  new Music("Bu Da Geçer Mi Sevgilim", "Yalın"),
-  new Music("Aramızda Uçurumlar", "Fuat Suna"),
+  new Music("Boşver", "Nilüfer", "1.jpeg", "1.mp3"),
+  new Music("Bu Da Geçer Mi Sevgilim", "Yalın", "2.jpeg", "2.mp3"),
+  new Music("Aramızda Uçurumlar", "Fuat Suna", "3.jpeg", "3.mp3"),
 ];

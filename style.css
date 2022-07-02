@@ -1,0 +1,16 @@
+.container {
+  width: 500px;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.controls {
+  font-size: 40px;
+}
+
+.my-1 {
+  margin: 15px auto;
+}
