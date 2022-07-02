@@ -10,11 +10,14 @@ const nextButton = document.querySelector(".controls #next");
 const previousButton = document.querySelector(".controls #prev");
 const volumeSlider = document.querySelector("#volume-slider");
 const volumeButton = document.querySelector("#volume-button");
+const musicListButton = document.querySelector("#list-button");
+const musicListSection = document.querySelector(".music-list");
 
 let myMusicPlayer = new MusicPlayer(musicList);
 
 window.addEventListener("load", () => {
   displayMusic();
+  loadMusicList(musicList);
 });
 
 function displayMusic() {
@@ -94,3 +97,24 @@ volumeSlider.addEventListener("input", (e) => {
     volumeButton.classList = "fa-solid fa-volume-high";
   }
 });
+
+function loadMusicList(list) {
+  for (let i = 0; i < list.length; i++) {
+    let item = `
+      <div class="music-list-item">
+      <audio class="music-${i}" src="mp3/${list[i].getAudioPath()}"></audio>
+        <span>${list[i].getTitle()} - ${list[i].getSinger()}</span>
+        <span id="music-${i}"></span>
+      </div>
+    `;
+
+    musicListSection.insertAdjacentHTML("beforeend", item);
+
+    let songDuration = musicListSection.querySelector(`#music-${i}`);
+    let myAudio = musicListSection.querySelector(`.music-${i}`);
+
+    myAudio.addEventListener("loadeddata", () => {
+      songDuration.innerText = calculateTime(myAudio.duration);
+    });
+  }
+}

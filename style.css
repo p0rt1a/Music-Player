@@ -40,3 +40,14 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+
+.footer > i {
+  cursor: pointer;
+}
+
+.music-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
