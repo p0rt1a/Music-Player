@@ -58,6 +58,12 @@ audio.addEventListener("timeupdate", () => {
   currentTime.textContent = calculateTime(slider.value);
 });
 
+audio.addEventListener("ended", () => {
+  myMusicPlayer.next();
+  displayMusic();
+  playMusic();
+});
+
 playButton.addEventListener("click", () => {
   if (audio.classList.contains("playing")) {
     isMusicPlaying = true;
@@ -118,3 +124,7 @@ function loadMusicList(list) {
     });
   }
 }
+
+slider.addEventListener("input", (e) => {
+  audio.currentTime = e.target.value;
+});
