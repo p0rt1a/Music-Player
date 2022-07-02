@@ -8,6 +8,8 @@ const songLength = document.querySelector(".time-info #music-length");
 const playButton = document.querySelector(".controls #play");
 const nextButton = document.querySelector(".controls #next");
 const previousButton = document.querySelector(".controls #prev");
+const volumeSlider = document.querySelector("#volume-slider");
+const volumeButton = document.querySelector("#volume-button");
 
 let myMusicPlayer = new MusicPlayer(musicList);
 
@@ -72,4 +74,23 @@ previousButton.addEventListener("click", () => {
   myMusicPlayer.previous();
   displayMusic();
   playMusic();
+});
+
+volumeButton.addEventListener("click", () => {
+  if (audio.muted) {
+    audio.muted = false;
+    volumeButton.classList = "fa-solid fa-volume-high";
+  } else if (!audio.muted) {
+    audio.muted = true;
+    volumeButton.classList = "fa-solid fa-volume-xmark";
+  }
+});
+
+volumeSlider.addEventListener("input", (e) => {
+  audio.volume = e.target.value / 100;
+  if (audio.volume == 0) {
+    volumeButton.classList = "fa-solid fa-volume-xmark";
+  } else {
+    volumeButton.classList = "fa-solid fa-volume-high";
+  }
 });

@@ -15,21 +15,28 @@
     <div class="container">
       <img id="music-image" src="" />
       <audio id="audio" src=""></audio>
-      <div class="music-info my-1">
+      <div class="music-info">
         <div id="title"></div>
         <div id="singer"></div>
       </div>
-      <div class="progress my-1">
+      <div class="progress">
         <input type="range" id="slider" />
         <div class="time-info my-1">
           <span id="current-time"></span>
           <span id="music-length"></span>
         </div>
       </div>
-      <div class="controls my-1">
+      <div class="controls">
         <i id="prev" class="fa-solid fa-backward-step"></i>
         <i id="play" class="fa-solid fa-play"></i>
         <i id="next" class="fa-solid fa-forward-step"></i>
+      </div>
+      <div class="footer">
+        <i class="fa-solid fa-bars"></i>
+        <div>
+          <i id="volume-button" class="fa-solid fa-volume-high"></i>
+          <input type="range" id="volume-slider" />
+        </div>
       </div>
     </div>
 
