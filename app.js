@@ -5,7 +5,9 @@ const singer = document.querySelector(".music-info #singer");
 const slider = document.querySelector(".progress #slider");
 const currentTime = document.querySelector(".time-info #current-time");
 const songLength = document.querySelector(".time-info #music-length");
-const play = document.querySelector(".controls #play");
+const playButton = document.querySelector(".controls #play");
+const nextButton = document.querySelector(".controls #next");
+const previousButton = document.querySelector(".controls #prev");
 
 let myMusicPlayer = new MusicPlayer(musicList);
 
@@ -18,6 +20,31 @@ function displayMusic() {
     "mp3/" + myMusicPlayer.musicList[myMusicPlayer.index].getAudioPath();
 }
 
-play.addEventListener("click", () => {
+function playMusic() {
+  audio.classList.add("playing");
   audio.play();
+}
+
+function pauseMusic() {
+  audio.classList.remove("playing");
+  audio.pause();
+}
+
+playButton.addEventListener("click", () => {
+  if (audio.classList.contains("playing")) {
+    isMusicPlaying = true;
+  } else {
+    isMusicPlaying = false;
+  }
+  isMusicPlaying ? pauseMusic() : playMusic();
+});
+
+nextButton.addEventListener("click", () => {
+  myMusicPlayer.next();
+  displayMusic();
+});
+
+previousButton.addEventListener("click", () => {
+  myMusicPlayer.previous();
+  displayMusic();
 });
