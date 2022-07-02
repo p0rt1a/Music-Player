@@ -16,6 +16,8 @@ window.addEventListener("load", () => {
 });
 
 function displayMusic() {
+  title.innerHTML = myMusicPlayer.musicList[myMusicPlayer.index].getTitle();
+  singer.innerHTML = myMusicPlayer.musicList[myMusicPlayer.index].getSinger();
   image.src =
     "img/" + myMusicPlayer.musicList[myMusicPlayer.index].getImagePath();
   audio.src =

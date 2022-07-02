@@ -6,6 +6,14 @@ class Music {
     this.audioPath = audioPath;
   }
 
+  getTitle() {
+    return this.title;
+  }
+
+  getSinger() {
+    return this.singer;
+  }
+
   getImagePath() {
     return this.imagePath;
   }

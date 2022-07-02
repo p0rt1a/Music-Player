@@ -1,10 +1,18 @@
 .container {
   width: 500px;
   text-align: center;
+  background-color: lightslategray;
+  border-radius: 20px;
+  padding: 10px;
+  color: #fff;
 }
 
 img {
   width: 100%;
+}
+
+.music-info {
+  font-size: 25px;
 }
 
 .controls {
@@ -13,4 +21,19 @@ img {
 
 .my-1 {
   margin: 15px auto;
+}
+
+.progress #slider {
+  width: 100%;
+}
+
+.progress .time-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.controls > i {
+  padding: 0 15px;
 }
