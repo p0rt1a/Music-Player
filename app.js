@@ -2,7 +2,7 @@ const image = document.querySelector("#music-image");
 const audio = document.querySelector("#audio");
 const title = document.querySelector(".music-info #title");
 const singer = document.querySelector(".music-info #singer");
-const slider = document.querySelector(".progress #slider");
+const slider = document.querySelector("#progress #slider");
 const currentTime = document.querySelector(".time-info #current-time");
 const songLength = document.querySelector(".time-info #music-length");
 const playButton = document.querySelector(".controls #play");
@@ -31,13 +31,13 @@ function displayMusic() {
 
 function playMusic() {
   audio.classList.add("playing");
-  playButton.classList = "fa-solid fa-pause";
+  playButton.querySelector("i").classList = "fa-solid fa-pause";
   audio.play();
 }
 
 function pauseMusic() {
   audio.classList.remove("playing");
-  playButton.classList = "fa-solid fa-play";
+  playButton.querySelector("i").classList = "fa-solid fa-play";
   audio.pause();
 }
 
@@ -107,7 +107,7 @@ volumeSlider.addEventListener("input", (e) => {
 function loadMusicList(list) {
   for (let i = 0; i < list.length; i++) {
     let item = `
-      <div class="music-list-item">
+      <div class="music-list-item py-2">
       <audio class="music-${i}" src="mp3/${list[i].getAudioPath()}"></audio>
         <span>${list[i].getTitle()} - ${list[i].getSinger()}</span>
         <span id="music-${i}"></span>

@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  width: 350px;
+  width: 400px;
   text-align: center;
   border-radius: 10px;
 }
@@ -16,13 +16,13 @@ img {
 }
 
 .music-info {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .controls,
 .footer {
   font-size: 30px;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   font-size: 30px;
 }
 
@@ -30,19 +30,24 @@ img {
   margin: 15px auto;
 }
 
-.progress #slider {
-  width: 100%;
-}
-
-.progress .time-info,
-.footer {
+.time-info,
+.footer,
+.footer > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.footer > div {
+  gap: 5px;
+}
+
 .footer > i {
   cursor: pointer;
+}
+
+.music-list {
+  padding: 0 10px;
 }
 
 .music-list-item {
@@ -50,4 +55,13 @@ img {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  font-size: 18px;
+}
+
+.px-2 {
+  padding: 0 15px;
+}
+
+.py-2 {
+  padding: 8px 0;
 }
