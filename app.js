@@ -11,7 +11,9 @@ const previousButton = document.querySelector(".controls #prev");
 
 let myMusicPlayer = new MusicPlayer(musicList);
 
-displayMusic();
+window.addEventListener("load", () => {
+  displayMusic();
+});
 
 function displayMusic() {
   image.src =
@@ -22,13 +24,32 @@ function displayMusic() {
 
 function playMusic() {
   audio.classList.add("playing");
+  playButton.classList = "fa-solid fa-pause";
   audio.play();
 }
 
 function pauseMusic() {
   audio.classList.remove("playing");
+  playButton.classList = "fa-solid fa-play";
   audio.pause();
 }
+
+function calculateTime(sec) {
+  const minute = Math.floor(sec / 60);
+  const seconds = Math.floor(sec % 60);
+  const time = seconds < 10 ? `${minute}:0${seconds}` : `${minute}:${seconds}`;
+  return time;
+}
+
+audio.addEventListener("loadedmetadata", () => {
+  songLength.textContent = calculateTime(audio.duration);
+  slider.max = Math.floor(audio.duration);
+});
+
+audio.addEventListener("timeupdate", () => {
+  slider.value = Math.floor(audio.currentTime);
+  currentTime.textContent = calculateTime(slider.value);
+});
 
 playButton.addEventListener("click", () => {
   if (audio.classList.contains("playing")) {
@@ -42,9 +63,11 @@ playButton.addEventListener("click", () => {
 nextButton.addEventListener("click", () => {
   myMusicPlayer.next();
   displayMusic();
+  playMusic();
 });
 
 previousButton.addEventListener("click", () => {
   myMusicPlayer.previous();
   displayMusic();
+  playMusic();
 });
